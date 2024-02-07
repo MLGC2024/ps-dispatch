@@ -90,6 +90,7 @@ local function setWaypoint()
     if not waypointCooldown and lib.table.contains(data.jobs, PlayerData.job.type) then
         SetNewWaypoint(data.coords.x, data.coords.y)
         TriggerServerEvent('ps-dispatch:server:attach', data.id, PlayerData)
+        TriggerEvent('wais:addmissionxp:addachdispatch', 1) --added by pamela for wais battlepass
         lib.notify({ description = locale('waypoint_set'), position = 'top', type = 'success' })
         waypointCooldown = true
         SetTimeout(timer, function()
